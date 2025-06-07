@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- BOOTSTRAP 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Okaru Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="usuario.html" class="sidebar-item">
+                <i class="icon-user"></i>
+              </a>              
+              
+            <nav class="menu">
+              <ul>
+                <li><span class="icon">🏠</span> <span>Home</span></li>
+                <li><span class="icon">➕</span> <span>Adicionar</span></li>
+                <li><span class="icon">📁</span> <span>Folders</span></li>
+                <li><span class="icon">👤</span> <span>User</span></li>
+              </ul>
+            </nav>
+          
+            <div class="estoque-card">
+              <p><strong>48%</strong> de recursos para 7 dias de segurança</p>
+              <div class="barra-progresso">
+                <div class="parte amarelo"></div>
+                <div class="parte azul"></div>
+                <div class="parte rosa"></div>
+                <div class="parte laranja"></div>
+              </div>
+              <div class="botoes">
+                <button class="detalhes">Ver detalhes</button>
+                <button class="atualizar">Atualizar estoque</button>
+              </div>
+            </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+      <header class="top-header">
+        <p>Olá, seja bem-vindo(a)!</p>
+        <h2>Gerencie os recursos da sua comunidade!</h2>
+        <!-- Barra Localizar -->
+<div class="localizar-container">
+    <input type="text" id="barraLocalizar" placeholder="Localizar..." autocomplete="off" />
+    <ul id="listaSugestoes" class="lista-sugestoes"></ul>
+  </div>
+  
+  <style>
+    .localizar-container {
+      position: relative;
+      max-width: 280px;
+      margin: 10px 0;
+    }
+    #barraLocalizar {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      box-sizing: border-box;
+      background-color: #222;
+      color: #eee;
+    }
+    .lista-sugestoes {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #333;
+      border-radius: 0 0 8px 8px;
+      max-height: 150px;
+      overflow-y: auto;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border: 1px solid #444;
+      border-top: none;
+      display: none;
+      z-index: 10;
+    }
+    .lista-sugestoes li {
+      padding: 8px 12px;
+      cursor: pointer;
+      color: #eee;
+    }
+    .lista-sugestoes li:hover {
+      background-color: #555;
+    }
+  </style>
+  
+  <script>
+    // Exemplo de itens que você pode carregar dinamicamente da sua base
+    const itens = [
+      "Alimentação",
+      "Medicamentos",
+      "Equipamentos",
+      "Áudio",
+    ];
+  
+    const barraLocalizar = document.getElementById('barraLocalizar');
+    const listaSugestoes = document.getElementById('listaSugestoes');
+  
+    barraLocalizar.addEventListener('input', () => {
+      const valor = barraLocalizar.value.toLowerCase().trim();
+      listaSugestoes.innerHTML = '';
+  
+      if (!valor) {
+        listaSugestoes.style.display = 'none';
+        return;
+      }
+  
+      const filtrados = itens.filter(item => item.toLowerCase().includes(valor));
+      if (filtrados.length === 0) {
+        listaSugestoes.style.display = 'none';
+        return;
+      }
+  
+      filtrados.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        li.onclick = () => {
+          barraLocalizar.value = item;
+          listaSugestoes.style.display = 'none';
+          // Aqui você pode adicionar a lógica para filtrar a lista de recursos na sua página
+        };
+        listaSugestoes.appendChild(li);
+      });
+  
+      listaSugestoes.style.display = 'block';
+    });
+  
+    // Fechar sugestões ao clicar fora
+    document.addEventListener('click', e => {
+      if (!barraLocalizar.contains(e.target) && !listaSugestoes.contains(e.target)) {
+        listaSugestoes.style.display = 'none';
+      }
+    });
+  </script>  
+      </header>
+
+
+      <section class="categorias">
+        <div class="categoria">🎵 Alimentação<br/><span>Arroz , Enlatados , Barras de cereal...</span></div>
+        <div class="categoria">💊 Medicamentos<br/><span>Analgésicos e antitérmicos , Antissépticos , Medicamentos para doenças crônicas...</span></div>
+        <div class="categoria">🛠️ Equipamentos<br/><span>Lanterna com pilhas extras , Rádio de pilha ou manivela , Kit de primeiros socorros...</span></div>
+        <div class="categoria">🎧 Áudio<br/><span>Rádio portátil de pilha ou manivela , Apito de emergência , Fones de ouvido com fio...</span></div>
+      </section>
+
+      <section class="recursos">
+        <h3>Recursos recentes</h3>
+        <ul>
+          <li>🥫 Atum sólido natural - Lata 120g</li>
+          <li>💊 Dipirona Monoidratada - 500mg</li>
+          <li>💦 Soro fisiológico - 500ml</li>
+        </ul>
+      </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+

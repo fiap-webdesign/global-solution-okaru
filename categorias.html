@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Okaru - Categorias</title>
+  <link rel="stylesheet" href="categorias.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h1>Okaru</h1>
+      <nav>
+        <ul>
+          <li><a href="#"><span>🏠</span> Home</a></li>
+          <li><a href="#"><span>📊</span> Estatísticas</a></li>
+          <li><a href="#"><span>➕</span> Adicionar</a></li>
+          <li><a href="#"><span>📁</span> Folders</a></li>
+          <li><a href="#"><span>👤</span> User</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+      <header class="top-header">
+        <button class="back-btn" aria-label="Voltar">←</button>
+        <h2>Categorias</h2>
+        <input type="search" placeholder="Localizar..." />
+      </header>
+      
+
+      <section class="categorias-grid">
+        <div class="categoria">
+          <div class="icon">🍴</div>
+          <p>Alimentação<br/><span>12 itens</span></p>
+        </div>
+        <div class="categoria">
+          <div class="icon">💊</div>
+          <p>Medicamentos<br/><span>20 itens</span></p>
+        </div>
+        <div class="categoria">
+          <div class="icon">🛠️</div>
+          <p>Equipamentos<br/><span>11 itens</span></p>
+        </div>
+        <div class="categoria">
+          <div class="icon">🚰</div>
+          <p>Água potável<br/><span>32 litros</span></p>
+        </div>
+      </section>
+
+      <section class="estoque-status">
+        <p><strong>48%</strong> de recursos para 7 dias de segurança</p>
+        <div class="barras">
+          <div class="barra amarelo"></div>
+          <div class="barra azul"></div>
+          <div class="barra rosa"></div>
+          <div class="barra laranja"></div>
+        </div>
+        <div class="botoes">
+          <button class="detalhes">Ver detalhes</button>
+          <button class="atualizar">Atualizar estoque</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="categorias.js"></script>
+</body>
+</html>
+
